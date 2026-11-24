@@ -40,6 +40,12 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+// The entry text. The sealed scorer gates it to 1–200 UTF-8 characters,
+// one line, no trailing newline — so the tip is kept at exactly 123
+// characters: short enough to read in a glance while the loading bar
+// spins, long enough for the three-clause setup plus the punchline
+// ("That's what the loading bar is for.") to land. Counted by hand
+// and re-checked by the gate below on every run; do not lengthen it.
 const LINE =
   "Tip: You wrote the prompt. The agent wrote the code. Neither of you knows what it does. That's what the loading bar is for.";
 
